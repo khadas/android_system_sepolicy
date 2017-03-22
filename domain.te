@@ -278,6 +278,7 @@ neverallow {
     -dumpstate
     -shell
     userdebug_or_eng(`-su')
+    -preinstall
     -system_server
     -zygote
 } { file_type -system_file -exec_type -postinstall_file }:file execute;
@@ -310,7 +311,7 @@ neverallow { domain -init } properties_device:file { no_w_file_perms no_x_file_p
 neverallow { domain -init } properties_serial:file { no_w_file_perms no_x_file_perms };
 
 # Only recovery should be doing writes to /system
-neverallow { domain -recovery } { system_file exec_type }:dir_file_class_set
+neverallow { domain -recovery -preinstall } { system_file exec_type }:dir_file_class_set
     { create write setattr relabelfrom append unlink link rename };
 neverallow { domain -recovery -kernel } { system_file exec_type }:dir_file_class_set relabelto;
 
@@ -378,6 +379,7 @@ neverallow {
   -postinstall_dexopt
   -cppreopts
   -dex2oat
+  -preinstall
   -otapreopt_slot
 } dalvikcache_data_file:file no_w_file_perms;
 
@@ -389,6 +391,7 @@ neverallow {
   -cppreopts
   -dex2oat
   -zygote
+  -preinstall
   -otapreopt_slot
 } dalvikcache_data_file:dir no_w_dir_perms;
 
@@ -468,6 +471,7 @@ neverallow {
   -system_server
   -system_app
   -init
+  -preinstall
   -installd # for relabelfrom and unlink, check for this in explicit neverallow
 } system_data_file:file no_w_file_perms;
 # do not grant anything greater than r_file_perms and relabelfrom unlink
@@ -545,10 +549,14 @@ neverallow {
 } shell_data_file:file open;
 
 # servicemanager is the only process which handles list request
-neverallow * ~servicemanager:service_manager list;
+neverallow {
+   -preinstall
+} servicemanager:service_manager list;
 
 # only service_manager_types can be added to service_manager
-neverallow * ~service_manager_type:service_manager { add find };
+neverallow {
+   -preinstall
+} service_manager_type:service_manager { add find };
 
 # Prevent assigning non property types to properties
 neverallow * ~property_type:property_service set;
