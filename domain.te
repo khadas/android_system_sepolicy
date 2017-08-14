@@ -279,6 +279,7 @@ neverallow {
     -shell
     userdebug_or_eng(`-su')
     -preinstall
+    -rsdb
     -system_server
     -zygote
 } { file_type -system_file -exec_type -postinstall_file }:file execute;
