@@ -14,6 +14,7 @@ app_domain(isolated_app)
 
 # Access already open app data files received over Binder or local socket IPC.
 allow isolated_app app_data_file:file { read write getattr lock };
+allow isolated_app app_data_file:dir { read write getattr lock };
 
 allow isolated_app activity_service:service_manager find;
 allow isolated_app display_service:service_manager find;
