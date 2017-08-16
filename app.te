@@ -347,7 +347,7 @@ neverallow { appdomain -shell userdebug_or_eng(`-su') } { domain -appdomain }:pr
     { transition dyntransition };
 
 # Write to rootfs.
-neverallow appdomain rootfs:dir_file_class_set
+neverallow { appdomain -priv_app } rootfs:dir_file_class_set
     { create write setattr relabelfrom relabelto append unlink link rename };
 
 # Write to /system.
