@@ -81,6 +81,7 @@ allow zygote rootfs:file r_file_perms;
 allow zygote system_file:dir r_dir_perms;
 allow zygote system_file:file r_file_perms;
 
+allow zygote kernel:system { module_request };
 userdebug_or_eng(`
   # Allow zygote to create and write method traces in /data/misc/trace.
   allow zygote method_trace_data_file:dir w_dir_perms;
