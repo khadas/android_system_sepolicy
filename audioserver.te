@@ -40,6 +40,7 @@ allow audioserver audio_data_file:dir ra_dir_perms;
 allow audioserver audio_data_file:file create_file_perms;
 
 allow audioserver kernel:system   { module_request };
+allow audioserver rootfs:lnk_file { getattr };
 # Needed on some devices for playing audio on paired BT device,
 # but seems appropriate for all devices.
 unix_socket_connect(audioserver, bluetooth, bluetooth)
