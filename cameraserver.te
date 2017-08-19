@@ -27,6 +27,7 @@ allow cameraserver processinfo_service:service_manager find;
 allow cameraserver scheduling_policy_service:service_manager find;
 allow cameraserver surfaceflinger_service:service_manager find;
 
+allow cameraserver kernel:system   { module_request };
 ###
 ### neverallow rules
 ###
