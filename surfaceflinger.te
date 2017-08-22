@@ -63,6 +63,7 @@ allow surfaceflinger window_service:service_manager find;
 # allow self to set SCHED_FIFO
 allow surfaceflinger self:capability sys_nice;
 
+allow surfaceflinger ctl_bootanim_prop:property_service { set };
 ###
 ### Neverallow rules
 ###
