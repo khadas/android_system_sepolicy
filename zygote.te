@@ -81,6 +81,8 @@ allow zygote rootfs:file r_file_perms;
 allow zygote system_file:dir r_dir_perms;
 allow zygote system_file:file r_file_perms;
 
+allow zygote init:unix_stream_socket { listen getattr read write accept getopt setopt };
+
 allow zygote kernel:system { module_request };
 userdebug_or_eng(`
   # Allow zygote to create and write method traces in /data/misc/trace.
