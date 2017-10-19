@@ -292,6 +292,7 @@ unix_socket_connect(init, vold, vold)
 # Raw writes to misc block device
 allow init misc_block_device:blk_file w_file_perms;
 
+allow init kernel:security { read_policy load_policy };
 ###
 ### neverallow rules
 ###
