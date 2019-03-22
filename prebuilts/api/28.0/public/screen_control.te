@@ -39,5 +39,6 @@ get_prop(screen_control, hwservicemanager_prop)
 
 get_prop(screen_control, safemode_prop)
 set_prop(screen_control, ctl_default_prop)
+get_prop(screen_control, vendor_default_prop)
 
 allow screen_control system_app:binder { call };
