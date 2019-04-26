@@ -1362,7 +1362,6 @@ neverallow {
   -vold
   -vold_prepare_subdirs
   -zygote
-  -shell
 } self:capability dac_override;
 neverallow { domain -traced_probes } self:capability dac_read_search;
 
