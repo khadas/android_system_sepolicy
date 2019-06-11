@@ -312,6 +312,8 @@
 (typeattributeset location_service_26_0 (location_service))
 (typeattributeset lock_settings_service_26_0 (lock_settings_service))
 (typeattributeset logcat_exec_26_0 (logcat_exec))
+(typeattributeset preinstall_26_0 (preinstall))
+(typeattributeset preinstall_exec_26_0 (preinstall_exec))
 (typeattributeset logd_26_0 (logd))
 (typeattributeset log_device_26_0 (log_device))
 (typeattributeset logd_exec_26_0 (logd_exec))
