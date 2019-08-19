@@ -147,6 +147,7 @@
     wait_for_keymaster_exec
     wait_for_keymaster_tmpfs
     preinstall_tmpfs
+    cmdserver_tmpfs
     wpantund
     wpantund_exec
     wpantund_service
