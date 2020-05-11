@@ -30,6 +30,9 @@ allow system_app wallpaper_file:file r_file_perms;
 # Read icon file.
 allow system_app icon_file:file r_file_perms;
 
+# Write sysfs
+allow system_app sysfs:file { open read write };
+
 # Write to properties
 set_prop(system_app, bluetooth_a2dp_offload_prop)
 set_prop(system_app, bluetooth_prop)

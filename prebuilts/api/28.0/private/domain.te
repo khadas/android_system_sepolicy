@@ -38,6 +38,7 @@ full_treble_only(`
   # /sys
   neverallow {
     coredomain
+    -system_app
     -init
     -ueventd
     -vold
