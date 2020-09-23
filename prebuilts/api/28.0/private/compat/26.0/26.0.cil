@@ -717,6 +717,7 @@
 (typeattributeset vendor_toolbox_exec_26_0 (vendor_toolbox_exec))
 (typeattributeset vfat_26_0 (vfat))
 (typeattributeset vibrator_service_26_0 (vibrator_service))
+(typeattributeset khadas_api_service_26_0 (khadas_api_service))
 (typeattributeset video_device_26_0 (video_device))
 (typeattributeset virtual_touchpad_26_0 (virtual_touchpad))
 (typeattributeset virtual_touchpad_exec_26_0 (virtual_touchpad_exec))
