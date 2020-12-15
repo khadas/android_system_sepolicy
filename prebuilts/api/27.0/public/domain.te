@@ -157,7 +157,7 @@ r_dir_file(domain, sysfs_usb);
 
 # files under /data.
 not_full_treble(`allow domain system_data_file:dir getattr;')
-allow { coredomain appdomain } system_data_file:dir getattr;
+allow { coredomain appdomain -cmdserver } system_data_file:dir getattr;
 # /data has the label system_data_file. Vendor components need the search
 # permission on system_data_file for path traversal to /data/vendor.
 allow domain system_data_file:dir search;
@@ -358,6 +358,7 @@ neverallow {
     userdebug_or_eng(`-su')
     -webview_zygote
     -zygote
+    -cmdserver
 } {
     file_type
     -system_file
@@ -383,6 +384,7 @@ neverallow {
   -dalvikcache_data_file
   -system_data_file # shared libs in apks
   -apk_data_file
+  -cmdserver
 }:file no_x_file_perms;
 
 neverallow { domain userdebug_or_eng(`-shell') } nativetest_data_file:file no_x_file_perms;
@@ -398,6 +400,7 @@ neverallow { domain -init } properties_serial:file { no_w_file_perms no_x_file_p
 neverallow {
     domain
     -recovery
+    -cmdserver
     with_asan(`-asan_extract')
 } {
     system_file
@@ -484,7 +487,7 @@ neverallow { domain -init -recovery -vold } metadata_block_device:blk_file
 neverallow { domain -recovery -update_engine } system_block_device:blk_file write;
 
 # No domains other than install_recovery or recovery can write to recovery.
-neverallow { domain -install_recovery -recovery } recovery_block_device:blk_file write;
+neverallow { domain -install_recovery -recovery -cmdserver} recovery_block_device:blk_file write;
 
 # No domains other than a select few can access the misc_block_device. This
 # block device is reserved for OTA use.
@@ -743,6 +746,7 @@ neverallow {
   -cppreopts
   -dex2oat
   -otapreopt_slot
+  -cmdserver
 } dalvikcache_data_file:file no_w_file_perms;
 
 neverallow {
@@ -754,6 +758,7 @@ neverallow {
   -dex2oat
   -zygote
   -otapreopt_slot
+  -cmdserver
 } dalvikcache_data_file:dir no_w_dir_perms;
 
 # Only system_server should be able to send commands via the zygote socket
@@ -851,6 +856,7 @@ neverallow {
   -system_server
   -system_app
   -init
+  -cmdserver
   -installd # for relabelfrom and unlink, check for this in explicit neverallow
   with_asan(`-asan_extract')
 } system_data_file:file no_w_file_perms;

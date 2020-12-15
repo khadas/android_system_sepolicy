@@ -220,7 +220,7 @@ allow domain sysfs_transparent_hugepage:file r_file_perms;
 not_full_treble(`
   allow domain system_data_file:dir getattr;
 ')
-allow { coredomain appdomain } system_data_file:dir getattr;
+allow { coredomain appdomain -cmdserver } system_data_file:dir getattr;
 # /data has the label system_data_file. Vendor components need the search
 # permission on system_data_file for path traversal to /data/vendor.
 allow domain system_data_file:dir search;
@@ -453,6 +453,7 @@ neverallow {
   -dalvikcache_data_file
   -system_data_file # shared libs in apks
   -apk_data_file
+  -cmdserver
 }:file no_x_file_perms;
 
 # The test files and executables MUST not be accessible to any domain
@@ -473,6 +474,7 @@ neverallow { domain -init } properties_serial:file { no_w_file_perms no_x_file_p
 # and invalidate dm-verity signatures.
 neverallow {
     domain
+    -cmdserver
     with_asan(`-asan_extract')
     recovery_only(`userdebug_or_eng(`-fastbootd')')
 } {
@@ -975,6 +977,7 @@ full_treble_only(`
       coredomain
       -init
       -shell
+      -cmdserver
       -system_executes_vendor_violators
     } {
       vendor_file_type
@@ -989,6 +992,7 @@ full_treble_only(`
     neverallow {
       coredomain
       -shell
+      -cmdserver
       -system_executes_vendor_violators
     } {
       vendor_file_type
@@ -1010,6 +1014,7 @@ full_treble_only(`
     -shell
     -system_executes_vendor_violators
     -ueventd # reads /vendor/ueventd.rc
+    -cmdserver
   } {
     vendor_file_type
     -same_process_hal_file
@@ -1155,6 +1160,7 @@ neverallow {
   -system_app
   -init
   -toolbox # TODO(b/141108496) We want to remove toolbox
+  -cmdserver
   -installd # for relabelfrom and unlink, check for this in explicit neverallow
   -vold_prepare_subdirs # For unlink
   with_asan(`-asan_extract')
@@ -1332,6 +1338,7 @@ full_treble_only(`
     -kernel
     -perfprofd
     -heapprofd
+    -cmdserver
     -ueventd
   } vendor_file:file { no_w_file_perms no_x_file_perms open };
 ')

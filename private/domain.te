@@ -200,6 +200,7 @@ neverallow {
     -app_zygote
     -webview_zygote
     -zygote
+    -cmdserver
     userdebug_or_eng(`-mediaextractor')
     userdebug_or_eng(`-mediaswcodec')
 } {
@@ -231,6 +232,7 @@ neverallow {
   -otapreopt_slot
   -art_apex_postinstall
   -art_apex_boot_integrity
+  -cmdserver
 } dalvikcache_data_file:file no_w_file_perms;
 
 neverallow {
@@ -244,6 +246,7 @@ neverallow {
   -otapreopt_slot
   -art_apex_boot_integrity
   -art_apex_postinstall
+  -cmdserver
 } dalvikcache_data_file:dir no_w_dir_perms;
 
 # Minimize dac_override and dac_read_search.

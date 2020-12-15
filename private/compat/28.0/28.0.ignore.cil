@@ -147,4 +147,5 @@
     vendor_misc_writer_exec
     vendor_task_profiles_file
     vrflinger_vsync_service
-    watchdogd_tmpfs))
+    watchdogd_tmpfs
+    cmdserver_tmpfs))
