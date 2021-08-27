@@ -1005,7 +1005,7 @@ full_treble_only(`
     # Do not allow vendor components to execute files from system
     # except for the ones whitelist here.
     neverallow {
-        domain
+        -domain
         -coredomain
         -appdomain
         -vendor_executes_system_violators
@@ -1361,7 +1361,7 @@ full_treble_only(`
 # Instead of granting them it is usually better to add the domain to
 # a Unix group or change the permissions of a file.
 neverallow {
-  domain
+  -domain
   -dnsmasq
   -dumpstate
   -init
