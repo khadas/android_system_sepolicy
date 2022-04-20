@@ -154,7 +154,7 @@ dontaudit domain {
 compatible_property_only(`
 # Prevent properties from being set
   neverallow {
-    domain
+    -domain
     -coredomain
     -appdomain
     -vendor_init
@@ -251,7 +251,7 @@ compatible_property_only(`
 
 # Prevent properties from being read
   neverallow {
-    domain
+    -domain
     -coredomain
     -appdomain
     -vendor_init
