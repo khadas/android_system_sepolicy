@@ -13,6 +13,9 @@ binder_service(system_app)
 # android.ui and system.ui
 allow system_app rootfs:dir getattr;
 
+allow system_app serial_device:chr_file { read write };
+allow system_app sysfs_leds:dir search;
+
 # Read and write /data/data subdirectory.
 allow system_app system_app_data_file:dir create_dir_perms;
 allow system_app system_app_data_file:{ file lnk_file } create_file_perms;
