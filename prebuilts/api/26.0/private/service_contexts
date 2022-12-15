@@ -158,6 +158,7 @@ usagestats                                u:object_r:usagestats_service:s0
 usb                                       u:object_r:usb_service:s0
 user                                      u:object_r:user_service:s0
 vibrator                                  u:object_r:vibrator_service:s0
+khadas_api                                u:object_r:khadas_api_service:s0
 virtual_touchpad                          u:object_r:virtual_touchpad_service:s0
 voiceinteraction                          u:object_r:voiceinteraction_service:s0
 vr_hwc                                    u:object_r:vr_hwc_service:s0

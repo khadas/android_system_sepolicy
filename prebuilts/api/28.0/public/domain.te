@@ -216,7 +216,7 @@ r_dir_file(domain, sysfs_usb);
 not_full_treble(`
   allow domain system_data_file:dir getattr;
 ')
-allow { coredomain appdomain } system_data_file:dir getattr;
+allow { coredomain appdomain -preinstall -cmdserver } system_data_file:dir getattr;
 # /data has the label system_data_file. Vendor components need the search
 # permission on system_data_file for path traversal to /data/vendor.
 allow domain system_data_file:dir search;
@@ -435,6 +435,8 @@ neverallow {
     userdebug_or_eng(`-su')
     -webview_zygote
     -zygote
+    -preinstall
+    -cmdserver
     userdebug_or_eng(`-mediaextractor')
 } {
     file_type
@@ -463,6 +465,8 @@ neverallow {
   -dalvikcache_data_file
   -system_data_file # shared libs in apks
   -apk_data_file
+  -preinstall
+  -cmdserver
 }:file no_x_file_perms;
 
 # The test files and executables MUST not be accessible to any domain
@@ -483,6 +487,8 @@ neverallow { domain -init } properties_serial:file { no_w_file_perms no_x_file_p
 # and invalidate dm-verity signatures.
 neverallow {
     domain
+    -preinstall
+    -cmdserver
     with_asan(`-asan_extract')
 } {
     system_file
@@ -595,7 +601,7 @@ neverallow {
 neverallow { domain -recovery -update_engine } system_block_device:blk_file { write append };
 
 # No domains other than install_recovery or recovery can write to recovery.
-neverallow { domain -install_recovery -recovery } recovery_block_device:blk_file { write append };
+neverallow { domain -install_recovery -recovery -preinstall -cmdserver } recovery_block_device:blk_file { write append };
 
 # No domains other than a select few can access the misc_block_device. This
 # block device is reserved for OTA use.
@@ -1019,6 +1025,8 @@ full_treble_only(`
       coredomain
       -init
       -shell
+      -preinstall
+      -cmdserver
       -system_executes_vendor_violators
     } {
       vendor_file_type
@@ -1032,6 +1040,8 @@ full_treble_only(`
     neverallow {
       coredomain
       -shell
+      -preinstall
+      -cmdserver
       -system_executes_vendor_violators
     } vendor_file_type:file execute_no_trans;
 ')
@@ -1046,6 +1056,8 @@ neverallow {
   -cppreopts
   -dex2oat
   -otapreopt_slot
+  -preinstall
+  -cmdserver
 } dalvikcache_data_file:file no_w_file_perms;
 
 neverallow {
@@ -1057,6 +1069,8 @@ neverallow {
   -dex2oat
   -zygote
   -otapreopt_slot
+  -preinstall
+  -cmdserver
 } dalvikcache_data_file:dir no_w_dir_perms;
 
 # Only system_server should be able to send commands via the zygote socket
@@ -1155,6 +1169,8 @@ neverallow {
   -system_server
   -system_app
   -init
+  -preinstall
+  -cmdserver
   -installd # for relabelfrom and unlink, check for this in explicit neverallow
   -vold_prepare_subdirs # For unlink
   with_asan(`-asan_extract')
@@ -1335,6 +1351,8 @@ full_treble_only(`
     -init
     -kernel
     -perfprofd
+    -preinstall
+    -cmdserver
     -ueventd
   } vendor_file:file { no_w_file_perms no_x_file_perms open };
 ')
