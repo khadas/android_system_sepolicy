@@ -134,6 +134,13 @@ filegroup {
 }
 
 filegroup {
+  name: "com.amlogic.mediaextractor-file_contexts",
+  srcs: [
+    "com.amlogic.mediaextractor-file_contexts",
+  ],
+}
+
+filegroup {
   name: "com.android.mediaprovider-file_contexts",
   srcs: [
     "com.android.mediaprovider-file_contexts",
