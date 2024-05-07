@@ -178,10 +178,18 @@ neverallow appdomain {
 }:lnk_file no_w_file_perms;
 
 # Applications should use the activity model for receiving events
+ifdef(`EBOOK_DEVICE', `
+neverallow {
+  appdomain
+  -shell # bugreport
+  -system_app
+} input_device:chr_file ~getattr;
+', `
 neverallow {
   appdomain
   -shell # bugreport
 } input_device:chr_file ~getattr;
+')
 
 # Do not allow access to Bluetooth-related system properties except for a few allowed domains.
 # neverallow rules for access to Bluetooth-related data files are above.
