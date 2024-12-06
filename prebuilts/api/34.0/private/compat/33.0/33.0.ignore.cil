@@ -16,6 +16,8 @@
     composd_vm_vendor_prop
     cpu_monitor_service
     credential_service
+    cmdserver
+    cmdserver_exec
     device_as_webcam
     device_config_camera_native_prop
     device_config_edgetpu_native_prop

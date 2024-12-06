@@ -16,6 +16,8 @@
     cloudsearch
     cloudsearch_service
     connectivity_native_service
+    cmdserver
+    cmdserver_exec
     device_config_nnapi_native_prop
     device_config_surface_flinger_native_boot_prop
     device_config_vendor_system_native_prop
