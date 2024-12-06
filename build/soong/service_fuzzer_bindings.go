@@ -221,6 +221,7 @@ var (
 		"cpu_monitor":                                                     EXCEPTION_NO_FUZZER,
 		"credential":                                                      EXCEPTION_NO_FUZZER,
 		"crossprofileapps":                                                EXCEPTION_NO_FUZZER,
+		"custom_service":                                                  EXCEPTION_NO_FUZZER,
 		"dataloader_manager":                                              EXCEPTION_NO_FUZZER,
 		"dbinfo":                                                          EXCEPTION_NO_FUZZER,
 		"device_config":                                                   EXCEPTION_NO_FUZZER,
