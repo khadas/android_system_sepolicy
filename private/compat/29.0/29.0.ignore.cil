@@ -47,6 +47,8 @@
     emergency_affordance_service
     exported_camera_prop
     fastbootd_protocol_prop
+    cmdserver
+    cmdserver_exec
     file_integrity_service
     fwk_automotive_display_hwservice
     fusectlfs

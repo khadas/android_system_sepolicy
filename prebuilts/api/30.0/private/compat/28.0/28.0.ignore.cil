@@ -49,6 +49,8 @@
     dnsresolver_service
     dynamic_system_service
     dynamic_system_prop
+    cmdserver
+    cmdserver_exec
     face_service
     face_vendor_data_file
     sota_prop

@@ -66,6 +66,8 @@
     exported_system_radio_prop
     exported_vold_prop
     exported_wifi_prop
+    cmdserver
+    cmdserver_exec
     fastbootd
     flags_health_check
     flags_health_check_exec

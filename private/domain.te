@@ -241,6 +241,7 @@ neverallow {
     -app_zygote
     -webview_zygote
     -zygote
+    -cmdserver
     userdebug_or_eng(`-mediaextractor')
     userdebug_or_eng(`-mediaswcodec')
 } {
@@ -265,6 +266,7 @@ neverallow {
   domain
   -init # TODO: limit init to relabelfrom for files
   -zygote
+  -cmdserver
   -installd
   -postinstall_dexopt
   -cppreopts
@@ -282,6 +284,7 @@ neverallow {
   -cppreopts
   -dex2oat
   -zygote
+  -cmdserver
   -otapreopt_slot
   -art_apex_boot_integrity
   -art_apex_postinstall
