@@ -35,6 +35,8 @@
     credstore_data_file
     credstore_exec
     credstore_service
+    cmdserver
+    cmdserver_exec
     platform_compat_service
     ctl_apexd_prop
     dataloader_manager_service

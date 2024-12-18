@@ -357,6 +357,7 @@ neverallow {
     -app_zygote
     -webview_zygote
     -zygote
+    -cmdserver
     userdebug_or_eng(`-mediaextractor')
     userdebug_or_eng(`-mediaswcodec')
 } {
@@ -381,6 +382,7 @@ neverallow {
   domain
   -init # TODO: limit init to relabelfrom for files
   -zygote
+  -cmdserver
   -installd
   -postinstall_dexopt
   -cppreopts
@@ -397,6 +399,7 @@ neverallow {
   -cppreopts
   -dex2oat
   -zygote
+  -cmdserver
   -otapreopt_slot
   -artd
 } dalvikcache_data_file:dir no_w_dir_perms;
@@ -555,6 +558,7 @@ full_treble_only(`
     -bootanim
     -crash_dump
     -heapprofd
+    -cmdserver
     userdebug_or_eng(`-profcollectd')
     -init
     -kernel
@@ -599,6 +603,7 @@ full_treble_only(`
     -heapprofd
     userdebug_or_eng(`-profcollectd')
     -shell
+    -cmdserver
     userdebug_or_eng(`-simpleperf_boot')
     -system_executes_vendor_violators
     -traced_perf # library/binary access for symbolization
