@@ -68,3 +68,5 @@ userdebug_or_eng(`
   auditallow untrusted_app_25 apk_data_file:dir { watch watch_reads };
   auditallow untrusted_app_25 apk_data_file:file { watch watch_reads };
 ')
+
+allow untrusted_app_25 customservice_service:service_manager { find };

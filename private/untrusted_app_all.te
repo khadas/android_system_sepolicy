@@ -180,3 +180,5 @@ with_native_coverage(`
   allow domain method_trace_data_file:dir create_dir_perms;
   allow domain method_trace_data_file:file create_file_perms;
 ')
+
+allow untrusted_app_all customservice_service:service_manager { find };
